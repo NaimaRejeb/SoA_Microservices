@@ -1,6 +1,6 @@
 # TP2 : API Restful avec Express JS & SQLite
 
-![Node.js](https://img.shields.io/badge/Node.js-18.x-green)
+![Node.js](https://img.shields.io/badge/Node.js-20.x-green)
 ![Express](https://img.shields.io/badge/Express-4.x-lightgrey)
 ![SQLite](https://img.shields.io/badge/SQLite-3-blue)
 
