@@ -7,8 +7,7 @@
 **Matière** : SoA & Microservices  
 **Enseignant** : Dr. Salah Gontara  
 **Classe** : 4Info  
-**Auteur** : [Votre Nom]  
-**Date** : [JJ/MM/AAAA]
+**Auteur** : [Naima REJEB]  
 
 ---
 ## 📋 Objectifs
@@ -320,47 +319,34 @@ app.listen(PORT, () => {
 
 ## 🔒 Étape 6 : OAuth 2.0 avec Keycloak
 
-1. Installation des dépendances 
-   
- ```bash
- npm install keycloak-connect express-session
- ```
-1. Configuration de Keycloak
-keyclock-config.json : 
-```bash
-{ 
-    "realm": "api-realm", 
-    "auth-server-url": "http://localhost:8080/auth", 
-    "ssl-required": "external", 
-    "resource": "pai-id", 
-    "credentials": { 
-        "secret": "api-secret" 
-    }, 
-    "confidential-port": 0 
-} 
+En cours .
+
+---
+
+### 📂 Structure du Projet
+
+```plaintext
+TP2/
+├── node_modules/          # Dépendances 📦
+├── postman_screenshots/                   # Images pour le README 🖼️
+├── database.js            # Base de données SQLite 🗄️
+├── index.js               # API principale 🚀
+├── keycloak-config.json   # Configuration de Keycloak 🔐
+├── package.json           # Configuration du projet 📄
+├── README.md              # Documentation 📖
+└── maBaseDeDonnees.sqlite # Base de données 🗃️
 ```
-3. Ajout Keyclock dans l'API
-index.js (nouvelle version) :
 
 ---
 
-## 🚀 Fonctionnalités
-- CRUD complet pour la ressource `personnes`
-- Gestion des erreurs détaillée
-- Structure modulaire professionnelle
-- Prête pour l'intégration avec Keycloak (optionnel)
-- Tests Postman inclus
+## 🚀 Comment Exécuter le Projet
 
----
-
-## 📦 Installation
-
-```bash
-# 1. Cloner le dépôt
-git clone https://github.com/votre-user/tp2-api-restful.git
-
-# 2. Installer les dépendances
-npm install
-
-# 3. Démarrer le serveur (développement)
-npm run dev
+1. Installez les dépendances :
+   ```bash
+   npm install
+   ```
+2. Démarrez le serveur :
+   ```bash
+   node index.js
+   ```
+3. Accédez à l'API via `http://localhost:3000`. 🌐
