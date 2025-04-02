@@ -6,8 +6,8 @@
 
 **Matière** : SoA & Microservices  
 **Enseignant** : Dr. Salah Gontara  
-**Classe** : 4Info  
-**Auteur** : [Naima REJEB]  
+**Classe** : 4Info  DataScience & AI
+**Auteur** : Naima REJEB
 
 ---
 ## 📋 Objectifs
