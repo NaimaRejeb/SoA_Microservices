@@ -88,7 +88,7 @@ Un message d'erreur va apparaître
 
 
 ## 📂 Structure du Projet
-
+```plain text
 TP2.5/
 ├── node_modules/                # Dossier des dépendances 📦
 ├── test_screenshots/            # Dossier contenant les images pour le README 🖼️
@@ -100,7 +100,7 @@ TP2.5/
 ├── package.json                 # Fichier de configuration du projet 📄
 ├── README.md                    # Documentation du projet 📖
 └── maBaseDeDonnees.sqlite       # Fichier de la base de données SQLite 🗃️
-
+```
 ## 🚀 Comment Exécuter le Projet
 Clonez le dépôt ou téléchargez les fichiers. 📥
 
