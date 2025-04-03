@@ -1,7 +1,7 @@
 # TP2.5 : API RESTful avec CORS et Rate Limiting  
 **Matière:** SoA et Microservices  
 **Enseignant:** Dr. Salah Gontara  
-**Classe:** 4Info  
+**Classe:** 4Info  4Info  DataScience & AI 
 
 **Auteur** : Naima REJEB
 
