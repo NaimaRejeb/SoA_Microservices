@@ -19,7 +19,7 @@
 npm install express sqlite3 cors express-rate-limit
 ```
 
-## 2. ⚙️ Configuration (`index.js`)  
+## 2. ⚙️ Configuration (extrait du `index.js`)  
 
 
 ```javascript
