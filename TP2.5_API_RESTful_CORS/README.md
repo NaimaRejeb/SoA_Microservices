@@ -1,7 +1,7 @@
 # TP2.5 : API RESTful avec CORS et Rate Limiting  
 **Matière:** SoA et Microservices  
 **Enseignant:** Dr. Salah Gontara  
-**Classe:** 4Info  
+**Classe:** 4Info  4Info  DataScience & AI 
 
 **Auteur** : Naima REJEB
 
@@ -19,7 +19,7 @@
 npm install express sqlite3 cors express-rate-limit
 ```
 
-## 2. ⚙️ Configuration (`index.js`)  
+## 2. ⚙️ Configuration (extrait du `index.js`)  
 
 
 ```javascript
@@ -88,7 +88,7 @@ Un message d'erreur va apparaître
 
 
 ## 📂 Structure du Projet
-
+```plain text
 TP2.5/
 ├── node_modules/                # Dossier des dépendances 📦
 ├── test_screenshots/            # Dossier contenant les images pour le README 🖼️
@@ -100,7 +100,7 @@ TP2.5/
 ├── package.json                 # Fichier de configuration du projet 📄
 ├── README.md                    # Documentation du projet 📖
 └── maBaseDeDonnees.sqlite       # Fichier de la base de données SQLite 🗃️
-
+```
 ## 🚀 Comment Exécuter le Projet
 Clonez le dépôt ou téléchargez les fichiers. 📥
 
