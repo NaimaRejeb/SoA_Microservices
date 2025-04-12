@@ -413,3 +413,20 @@ function main() {
   - Tapez un message dans le champ de saisie et appuyez sur Envoyer 
   ![Test avec Postman ](test_screenshots/test_chat_temps_reel1.png)
   ![Test avec Postman ](test_screenshots/test_chat_temps_reel2.png)
+
+
+---
+```plaintext
+             
+TP5_gRPC-WebSocket-Reverse-Proxy/
+├── node_modules/        # Dépendances 📦
+├── test_screenshots/    # Les captures du test 📜
+├── chat.proto           # Définition du service gRPC 🧩
+├── server.js            # Implémentation du serveur gRPC🚀
+├── proxy.js             # Implémentation du proxy WebSocket 🌐
+├── client.html          # Interface utilisateur web 📱
+├── package.json         # Configuration du projet ⚙️
+└── README.md            # Documentation 📖
+
+
+```
