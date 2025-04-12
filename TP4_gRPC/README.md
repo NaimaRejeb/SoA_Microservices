@@ -19,6 +19,7 @@
 
 ## 🛠️ Prérequis
 - [Node.js](https://nodejs.org/) (v18+ recommandé)
+- [ProtoBuf](https://developers.google.com/protocol-buffers/docs/downloads) 
    ```bash
    # Sur Windows : Télécharger depuis https://protobuf.dev/downloads/
    # Sur Ubuntu :
@@ -42,8 +43,8 @@
 
 ## 📥 Configuration du TP  
 ```bash  
-mkdir grpc-tp
-cd grpc-tp
+mkdir TP4_gRPC
+cd TP4_gRPC
 npm init -y
 npm install @grpc/grpc-js @grpc/proto-loader 
 ```
