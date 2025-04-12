@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Client Chat WebSocket</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        #messages { height: 300px; border: 1px solid #ccc; overflow-y: scroll; padding: 10px; }
+        #messageInput { width: 70%; padding: 8px; }
+        button { padding: 8px 15px; }
+    </style>
+</head>
+<body>
+    <h1>Chat en temps réel</h1>
+    <div id="messages"></div>
+    <input type="text" id="messageInput" placeholder="Écrivez un message..." />
+    <button onclick="sendMessage()">Envoyer</button>
+
+    <script>
+        const ws = new WebSocket('ws://localhost:8080');
+        const messagesDiv = document.getElementById('messages');
+        const messageInput = document.getElementById('messageInput');
+
+        // Afficher les messages reçus
+        ws.onmessage = (event) => {
+            const data = JSON.parse(event.data);
+            if (data.chat_message) {
+                const msg = data.chat_message;
+                messagesDiv.innerHTML += `<p><strong>${msg.sender_id}:</strong> ${msg.content}</p>`;
+                messagesDiv.scrollTop = messagesDiv.scrollHeight; // Défilement automatique
+            }
+        };
+
+        // Envoyer un message
+        function sendMessage() {
+            const content = messageInput.value.trim();
+            if (content) {
+                const message = {
+                    chat_message: {
+                        id: Date.now().toString(),
+                        room_id: "room1",
+                        sender_id: "user-web",
+                        content: content
+                    }
+                };
+                ws.send(JSON.stringify(message));
+                messageInput.value = "";
+            }
+        }
+
+        // Gérer la touche "Entrée"
+        messageInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+    </script>
+</body>
+</html>
