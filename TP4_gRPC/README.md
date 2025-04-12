@@ -119,7 +119,8 @@ main();
    ```
    - Sortie attendue : 
    ```plaintext 
-   Serveur gRPC démarré sur 0.0.0.0:50051 ```
+   Serveur gRPC démarré sur 0.0.0.0:50051
+    ```
 3. Tester avec Postman :
    1. - Importer le fichier hello.proto
    2. - Configurer une requête gRPC vers localhost:50051
