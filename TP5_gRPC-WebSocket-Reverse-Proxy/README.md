@@ -247,14 +247,16 @@ ws.on('message', (message) => {
    ```
    - Sortie attendue :
     ```plaintext 
-    Serveur gRPC démarré sur 0.0.0.0:50051 ```
+    Serveur gRPC démarré sur 0.0.0.0:50051 
+    ```
 3. Démarrer le reverse proxy: 
    ```bash
    node proxy.js
    ```
    - Sortie attendue :
    ```plaintext 
-    Reverse proxy WebSocket en écoute sur wss://localhost:8080 ```
+    Reverse proxy WebSocket en écoute sur wss://localhost:8080 
+    ```
 4. Tester avec Postman :
    1. - Se connecter à : ws://localhost:8080
    2. - Envoyer ce message json : 
