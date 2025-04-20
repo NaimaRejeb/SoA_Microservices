@@ -66,7 +66,7 @@ bin/kafka-topics.sh --create --partitions 1 --replication-factor 1 --topic test-
 
 ```bash
 npm init -y
-npm install kafkajs express mongoose
+npm install kafkajs express 
 ```
 
 ## ⚙️ Travail à faire 
@@ -181,40 +181,40 @@ console.log(`API disponible sur http://localhost:${port}`);
 ```
 ## 🧪 Tests
 
-#### 1. ▶️ Lancer les services
+### 1. ▶️ Lancer les services
 
-# Terminal 1
+#### Terminal 1
 ```bash
 bin/zookeeper-server-start.sh config/zookeeper.properties
 ```
-# Terminal 2
+#### Terminal 2
 ```bash
 bin/kafka-server-start.sh config/server.properties
 ```
-# Terminal 3
+#### Terminal 3
 ```bash
 node producer.js
 ```
 ![Producer ](test_screenshots/producer.png)
-# Terminal 4
+#### Terminal 4
 ```bash
 node consumer.js
 ```
 ![Consumer ](test_screenshots/consumer.png)
-# Terminal 5
+#### Terminal 5
 ```bash
 node api.js
 ```
 ![API ](test_screenshots/api.png)
 
-#### 2. 📫 Tester l’API avec Postman
+### 2. 📫 Tester l’API avec Postman
 - Méthode : GET
 - URL : http://localhost:3000/messages
 - 
 ![Test avec Postman ](test_screenshots/postman_test.png)
 
 ---
-#### 3. 💾 Tester avec MongoDB Atlas
+### 3. 💾 Tester avec MongoDB Atlas
 1. Connexion au compte MongoDB Atlas.
 
 2. Cluster => "Browse Collections".
