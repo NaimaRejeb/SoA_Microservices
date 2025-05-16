@@ -1,0 +1,77 @@
+syntax = "proto3";
+package traveler;
+
+// Définition du message UserPreferences
+message TravelerPreferences {
+  string seatPreference = 1;
+  string mealPreference = 2;
+  bool notificationEnabled = 3;
+}
+
+// Définition du message Traveler
+message Traveler {
+  string id = 1;
+  string name = 2;
+  string email = 3;
+  string phoneNumber = 4;
+  TravelerPreferences preferences = 5;
+}
+
+// Définition des messages de requête et de réponse
+message GetTravelerRequest {
+  string traveler_id = 1;
+}
+
+message GetTravelerResponse {
+  Traveler traveler = 1;
+}
+
+message CreateTravelerRequest {
+  string name = 1;
+  string email = 2;
+  string phoneNumber = 3;
+  TravelerPreferences preferences = 4;
+}
+
+message CreateTravelerResponse {
+  Traveler traveler = 1;
+}
+
+message UpdateTravelerRequest {
+  string traveler_id = 1;
+  string name = 2;
+  string email = 3;
+  string phoneNumber = 4;
+  TravelerPreferences preferences = 5;
+}
+
+message UpdateTravelerResponse {
+  Traveler traveler = 1;
+}
+
+message ListAllTravelersRequest {
+  // Paramètres optionnels de pagination
+  int32 page = 1;
+  int32 limit = 2;
+}
+
+message ListAllTravelersResponse {
+  repeated Traveler travelers = 1;
+}
+
+message DeleteTravelerRequest {
+  string traveler_id = 1;
+}
+
+message DeleteTravelerResponse {
+  string message = 1;
+}
+
+// Définition du service voyageur
+service TravelerService {
+  rpc GetTraveler(GetTravelerRequest) returns (GetTravelerResponse);
+  rpc CreateTraveler(CreateTravelerRequest) returns (CreateTravelerResponse);
+  rpc UpdateTraveler(UpdateTravelerRequest) returns (UpdateTravelerResponse);
+  rpc ListAllTravelers(ListAllTravelersRequest) returns (ListAllTravelersResponse);
+  rpc DeleteTraveler(DeleteTravelerRequest) returns (DeleteTravelerResponse);
+}

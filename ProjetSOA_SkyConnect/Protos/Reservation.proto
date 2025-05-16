@@ -1,0 +1,94 @@
+syntax = "proto3";
+package reservation;
+
+// Définition du message PaymentInfo
+message PaymentInfo {
+  string method = 1;      // ex: "card", "paypal", etc.
+  string status = 2;      // ex: "pending", "completed", "failed"
+  string transactionId = 3;
+  float amount = 4;
+  string date = 5;
+}
+
+// Définition du message Reservation
+message Reservation {
+  string id = 1;
+  string traveler_id = 2;
+  string journeyId = 3;
+  int32 passengersCount = 4;
+  repeated string seatNumbers = 5;
+  float totalPrice = 6;
+  string reservationDate = 7;
+  string status = 8;      // ex: "pending", "confirmed", "cancelled", "completed"
+  PaymentInfo paymentInfo = 9;
+  int32 baggageAllowance = 10;
+  string specialRequests = 11;
+  string contactEmail = 12;
+  string contactPhone = 13;
+}
+
+// Définition des messages de requête et de réponse
+message GetReservationRequest {
+  string status = 1;
+}
+
+message GetReservationResponse {
+  repeated Reservation reservations = 1; 
+}
+
+message CreateReservationRequest {
+  string traveler_id = 1;
+  string journeyId = 2;
+  int32 passengersCount = 3;
+  float totalPrice = 4;
+  string contactEmail = 5;
+  string contactPhone = 6;
+}
+
+message CreateReservationResponse {
+  Reservation reservation = 1;
+}
+
+message UpdateReservationStatusRequest {
+  string reservation_id = 1;
+  string status = 2;
+}
+
+message UpdateReservationStatusResponse {
+  Reservation reservation = 1;
+}
+
+message ListAllReservationsRequest {
+  int32 page = 1;
+  int32 limit = 2;
+}
+
+message ListAllReservationsResponse {
+  repeated Reservation reservations = 1;
+}
+
+message DeleteReservationRequest {
+  string reservation_id = 1;
+}
+
+message DeleteReservationResponse {
+  string message = 1;
+}
+
+message GetTravelerReservationsRequest {
+  string traveler_id = 1;
+}
+
+message GetTravelerReservationsResponse {
+  repeated Reservation reservations = 1;
+}
+
+// Définition du service de réservation
+service ReservationService {
+  rpc GetReservation(GetReservationRequest) returns (GetReservationResponse);
+  rpc CreateReservation(CreateReservationRequest) returns (CreateReservationResponse);
+  rpc UpdateReservationStatus(UpdateReservationStatusRequest) returns (UpdateReservationStatusResponse);
+  rpc ListAllReservations(ListAllReservationsRequest) returns (ListAllReservationsResponse);
+  rpc DeleteReservation(DeleteReservationRequest) returns (DeleteReservationResponse);
+  rpc GetTravelerReservations(GetTravelerReservationsRequest) returns (GetTravelerReservationsResponse);
+}

@@ -1,0 +1,105 @@
+syntax = "proto3";
+package journey;
+
+// Définition du message Stopover (escale)
+message Stopover {
+  string location = 1;
+  string arrivalTime = 2;
+  string departureTime = 3;
+  int32 duration = 4; // en minutes
+}
+
+// Définition du message Journey (Trajet)
+message Journey {
+  string id = 1;
+  string journeyId = 2;       // Identifiant unique du trajet
+  string journeyNumber = 3;
+  string airline = 4;
+  string departure = 5;        // Lieu de départ
+  string arrival = 6;          // Lieu d'arrivée
+  string departureTime = 7;    // Heure de départ (format ISO)
+  string arrivalTime = 8;      // Heure d'arrivée (format ISO)
+  int32 duration = 9;          // Durée en minutes
+  repeated Stopover stopovers = 10; // Liste des escales
+  float price = 11;
+  int32 seats = 12;           // Nombre total de sièges
+  int32 availableSeats = 13;  // Sièges disponibles
+  string aircraft = 14;       // Type d'avion
+  string cabinClass = 15;     // Classe (economy, business, first)
+  string status = 16;         // État du vol (scheduled, delayed, etc.)
+}
+
+// Définition des messages de requête et de réponse
+message GetJourneyRequest {
+  string journey_id = 1;
+}
+
+message GetJourneyResponse {
+  Journey journey = 1;
+}
+
+message SearchJourneysRequest {
+  string departure = 1;
+  string arrival = 2;
+  string departureDate = 3;  // Format ISO
+  int32 passengers = 4;      // Optionnel
+  string cabinClass = 5;     // Optionnel
+}
+
+message SearchJourneysResponse {
+  repeated Journey journeys = 1;
+}
+
+message UpdateJourneySeatsRequest {
+  string journey_id = 1;
+  int32 seatsChange = 2; // Nombre de sièges à ajouter/retirer (positif/négatif)
+}
+
+message UpdateJourneySeatsResponse {
+  Journey journey = 1;
+}
+
+message UpdateJourneyStatusRequest {
+  string journey_id = 1;
+  string status = 2; // Nouveau statut
+}
+
+message UpdateJourneyStatusResponse {
+  Journey journey = 1;
+}
+
+message ListAllJourneysRequest {
+  int32 page = 1;
+  int32 limit = 2;
+}
+
+message ListAllJourneysResponse {
+  repeated Journey journeys = 1;
+}
+
+message AddJourneyRequest {
+  string journeyNumber = 1;
+  string airline = 2;
+  string departure = 3;
+  string arrival = 4;
+  string departureTime = 5;
+  string arrivalTime = 6;
+  float price = 7;
+  int32 seats = 8;
+  string aircraft = 9;
+  string cabinClass = 10;
+}
+
+message AddJourneyResponse {
+  Journey journey = 1;
+}
+
+// Définition du service de trajets
+service JourneyService {
+  rpc GetJourney(GetJourneyRequest) returns (GetJourneyResponse);
+  rpc SearchJourneys(SearchJourneysRequest) returns (SearchJourneysResponse);
+  rpc UpdateJourneySeats(UpdateJourneySeatsRequest) returns (UpdateJourneySeatsResponse);
+  rpc UpdateJourneyStatus(UpdateJourneyStatusRequest) returns (UpdateJourneyStatusResponse);
+  rpc ListAllJourneys(ListAllJourneysRequest) returns (ListAllJourneysResponse);
+  rpc AddJourney(AddJourneyRequest) returns (AddJourneyResponse);
+}
